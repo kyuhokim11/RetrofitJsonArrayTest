@@ -29,7 +29,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "MainActivity";
-    TextView tvJsonObject1, tvJsonObject2, tvJsonObject3, tvJsonArr;
+    TextView tvJsonObject1, tvJsonObject2, tvJsonObject3, tvJsonObject4, tvJsonObject5, tvJsonArr;
     Button btnLoad;
     String token = "token 83dcdadebe362bd32678a0c7ab36202feb998e84";
     String textJsonArr;
@@ -134,8 +134,35 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "(parser)response 바디: "+ response.body());
                 arrayJsonArr = response.body();
                 JSONArray jsonArray = new JSONArray(arrayJsonArr);
-                tvJsonObject1.setText(arrayJsonArr.toString());
-                Log.d(TAG, "json length :" + arrayJsonArr.size());
+
+
+
+                if(arrayJsonArr.size() == 1){
+                    tvJsonObject1.setText(arrayJsonArr.get(0).getId()+arrayJsonArr.get(0).getAccount()
+                            +arrayJsonArr.get(0).getNickname()+arrayJsonArr.get(0).getImage()+arrayJsonArr.get(0).getThumb());
+                }else if(arrayJsonArr.size() == 2){
+                    tvJsonObject1.setText(arrayJsonArr.get(0).getId()+arrayJsonArr.get(0).getAccount()
+                            +arrayJsonArr.get(0).getNickname()+arrayJsonArr.get(0).getImage()+arrayJsonArr.get(0).getThumb());
+                    tvJsonObject2.setText(arrayJsonArr.get(1).getId()+arrayJsonArr.get(1).getAccount()
+                            +arrayJsonArr.get(1).getNickname()+arrayJsonArr.get(1).getImage()+arrayJsonArr.get(1).getThumb());
+                }else if(arrayJsonArr.size() == 3){
+                    tvJsonObject1.setText(arrayJsonArr.get(0).getId()+arrayJsonArr.get(0).getAccount()
+                            +arrayJsonArr.get(0).getNickname()+arrayJsonArr.get(0).getImage()+arrayJsonArr.get(0).getThumb());
+                    tvJsonObject2.setText(arrayJsonArr.get(1).getId()+arrayJsonArr.get(1).getAccount()
+                            +arrayJsonArr.get(1).getNickname()+arrayJsonArr.get(1).getImage()+arrayJsonArr.get(1).getThumb());
+                    tvJsonObject3.setText(arrayJsonArr.get(2).getId()+arrayJsonArr.get(2).getAccount()
+                            +arrayJsonArr.get(2).getNickname()+arrayJsonArr.get(2).getImage()+arrayJsonArr.get(2).getThumb());
+                }else if(arrayJsonArr.size() == 4){
+                    tvJsonObject1.setText(arrayJsonArr.get(0).getId()+arrayJsonArr.get(0).getAccount()
+                            +arrayJsonArr.get(0).getNickname()+arrayJsonArr.get(0).getImage()+arrayJsonArr.get(0).getThumb());
+                    tvJsonObject2.setText(arrayJsonArr.get(1).getId()+arrayJsonArr.get(1).getAccount()
+                            +arrayJsonArr.get(1).getNickname()+arrayJsonArr.get(1).getImage()+arrayJsonArr.get(1).getThumb());
+                    tvJsonObject3.setText(arrayJsonArr.get(2).getId()+arrayJsonArr.get(2).getAccount()
+                            +arrayJsonArr.get(2).getNickname()+arrayJsonArr.get(2).getImage()+arrayJsonArr.get(2).getThumb());
+                    tvJsonObject4.setText(arrayJsonArr.get(3).getId()+arrayJsonArr.get(3).getAccount()
+                            +arrayJsonArr.get(3).getNickname()+arrayJsonArr.get(3).getImage()+arrayJsonArr.get(3).getThumb());
+                    }
+
                 // below line we are running a loop to add data to our adapter class.
                 for (int i = 0; i < arrayJsonArr.size(); i++) {
                         Log.d(TAG, "id :"+ arrayJsonArr.get(i).getId());
@@ -145,19 +172,8 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, "thumb :"+ arrayJsonArr.get(i).getThumb());
 
                 }
-                // 배열의 모든 아이템을 출력합니다.
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    try {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Log.d(TAG, "id :"+ jsonObject.getString("id"));
-                        Log.d(TAG, "account :"+ jsonObject.getString("account"));
-                        Log.d(TAG, "nickname :"+ jsonObject.getString("nickname"));
-                        Log.d(TAG, "image :"+ jsonObject.getString("image"));
-                        Log.d(TAG, "thumb :"+ jsonObject.getString("thumb"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+
+
             }
 
             @Override

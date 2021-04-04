@@ -53,6 +53,20 @@
         android:text="Hello World!"
         android:layout_margin="20dp"
         />
+    <TextView
+        android:id="@+id/tv_jsonOb4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_jsonOb5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_margin="20dp"
+        />
 
 
 </LinearLayout>
